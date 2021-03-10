@@ -25,6 +25,8 @@ class _CalculatorState extends State<Calculator> {
 
   Widget calcButton(String btnText, Color btnColor, Color textColor){
     return Container(
+      height: MediaQuery.of(context).size.height*0.1*1,
+      width: MediaQuery.of(context).size.width*0.25,
       child: RaisedButton(
         onPressed: (){
           //TODO add function for button press
@@ -36,9 +38,12 @@ class _CalculatorState extends State<Calculator> {
             color: textColor,
           ),
         ),
-        shape: Border(),
+        // shape: Border(),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(0.0),
+        ),
         color: btnColor,
-        padding: EdgeInsets.all(30),
+        padding: EdgeInsets.all(20.0),
        ),
     );
   }
@@ -49,7 +54,7 @@ class _CalculatorState extends State<Calculator> {
       backgroundColor: Colors.grey[850],
       appBar: AppBar(title: Text('Calculator'), backgroundColor: Colors.black,),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 5),
+        padding: EdgeInsets.symmetric(vertical: 1),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
@@ -60,7 +65,7 @@ class _CalculatorState extends State<Calculator> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.all(1.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: Text('$text',
                       textAlign: TextAlign.left,
                       style: TextStyle(
@@ -73,7 +78,8 @@ class _CalculatorState extends State<Calculator> {
               ),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              // crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 //Here buttons function will be called where we will pass some arguments
                 calcButton('C', Colors.grey[800], Colors.white),
@@ -82,20 +88,21 @@ class _CalculatorState extends State<Calculator> {
                 calcButton('/', Colors.amber[700], Colors.white),
               ],
             ),
-            SizedBox(height: 10,),
+            SizedBox(height: 1,),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 //Here buttons function will be called where we will pass some arguments
                 calcButton('7', Colors.grey[600], Colors.white),
                 calcButton('8', Colors.grey[600], Colors.white),
                 calcButton('9', Colors.grey[600], Colors.white),
                 calcButton('x', Colors.amber[700], Colors.white),
+                // SizedBox(width: 50,)
               ],
             ),
-            SizedBox(height: 10,),
+            SizedBox(height: 1,),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 //Here buttons function will be called where we will pass some arguments
                 calcButton('4', Colors.grey[600], Colors.white),
@@ -104,9 +111,9 @@ class _CalculatorState extends State<Calculator> {
                 calcButton('-', Colors.amber[700], Colors.white),
               ],
             ),
-            SizedBox(height: 10,),
+            SizedBox(height: 1,),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 //Here buttons function will be called where we will pass some arguments
                 calcButton('1', Colors.grey[600], Colors.white),
@@ -115,13 +122,13 @@ class _CalculatorState extends State<Calculator> {
                 calcButton('+', Colors.amber[700], Colors.white),
               ],
             ),
-            SizedBox(height: 10,),
+            SizedBox(height: 1,),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 //This is button 0
                 RaisedButton(
-                  padding: EdgeInsets.fromLTRB(34, 20, 128, 20),
+                  padding: EdgeInsets.fromLTRB(40, 25, 151, 25),
                   onPressed: (){
                     //Button function
                     calculation('0');
@@ -139,10 +146,11 @@ class _CalculatorState extends State<Calculator> {
                 calcButton('=', Colors.amber[700], Colors.white),
               ],
             ),
-            SizedBox(height: 10,),
+            SizedBox(height: 1,),
           ],
         ),
       ),
+
     );
   }
   //Calculation logic
